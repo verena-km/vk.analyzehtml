@@ -6,28 +6,49 @@
       metal:use-macro="context/main_template/macros/master">
 <body>
 
-  <metal:custom_title fill-slot="content-title">
-    <h1 tal:replace="structure context/@@title" />
-
-    <!-- @@title view template: -->
-    <!--
-    <h1 tal:define="title context/Title" tal:condition="title" tal:content="title">
-      Title or id
-    </h1>
-    -->
-
+<metal:custom_title fill-slot="content-title">
+    <h1> Auswertung der genutzten HTML-Tags und HTML-Klassen </h1>
   </metal:custom_title>
 
   <metal:custom_description fill-slot="content-description">
-    <p tal:replace="structure context/@@description" />
+    <p> Zeigt eine Liste der in Seiten und Nachrichten genutzten HTML-Tags und HTML-Klassen </p>
   </metal:custom_description>
 
   <metal:content-core fill-slot="content-core">
   <metal:block define-macro="content-core">
 
-    <h2>Main content</h2>
-    <!--<div tal:replace="view/my_custom_view_method" />-->
-    <!--<div tal:replace="context/my_custom_field" />-->
+  <h2> Tags </h2>
+
+  <div tal:define="tags view/tags">
+      <ul>
+          <li tal:repeat="element python:tags.keys()">
+            <span tal:replace="element"/>:
+
+            <div tal:repeat="doc python:tags[element]">
+              <a tal:attributes="href doc/absolute_url"
+                tal:content="doc/title">
+                </a>
+            </div>
+          </li>
+      </ul>
+  </div>
+
+
+  <h2> Classes </h2>
+
+  <div tal:define="classes view/classes">
+      <ul>
+          <li tal:repeat="element python:classes.keys()">
+            <span tal:replace="element"/>:
+
+            <div tal:repeat="doc python:classes[element]">
+              <a tal:attributes="href doc/absolute_url"
+                tal:content="doc/title">
+                </a>
+            </div>
+          </li>
+      </ul>
+  </div>
 
   </metal:block>
   </metal:content-core>
