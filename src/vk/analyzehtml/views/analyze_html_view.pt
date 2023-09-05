@@ -15,16 +15,21 @@
   <h2> Tags </h2>
 
   <div tal:define="tags view/tags">
-      <ul>
-          <li tal:repeat="element python:tags.keys()">
-            <span tal:replace="element"/>:(<span tal:replace="python:len(tags[element])" />)
-            <div tal:repeat="doc python:tags[element]">
-              <a tal:attributes="href doc/absolute_url"
-                tal:content="doc/title">
-                </a>
-            </div>
-          </li>
-      </ul>
+    <ul>
+      <li tal:repeat="element python:tags.keys()">
+        <details>
+          <summary>
+            <span tal:replace="element"/> (<span tal:replace="python:len(tags[element])" />)
+          </summary>
+
+        <div tal:repeat="doc python:tags[element]">
+          <a tal:attributes="href doc/absolute_url"
+            tal:content="doc/title">
+          </a>
+        </div>
+        </details>
+      </li>
+    </ul>
   </div>
 
 
@@ -32,29 +37,23 @@
 
   <div tal:define="classes view/classes">
       <ul>
-          <li tal:repeat="element python:classes.keys()">
-            <span tal:replace="element"/>:(<span tal:replace="python:len(classes[element])" />)
+        <li tal:repeat="element python:classes.keys()">
+          <details>
+            <summary>
+              <span tal:replace="element"/> (<span tal:replace="python:len(classes[element])" />)
+            </summary>
 
-            <div tal:repeat="doc python:classes[element]">
-              <a tal:attributes="href doc/absolute_url"
-                tal:content="doc/title">
-                </a>
-            </div>
-          </li>
+          <div tal:repeat="doc python:classes[element]">
+            <a tal:attributes="href doc/absolute_url"
+              tal:content="doc/title">
+            </a>
+          </div>
+          </details>
+        </li>
       </ul>
   </div>
 
-<a href="#modal1" class="pat-plone-modal" data-pat-modal="height: 400px" data-plone-pat-modal="height: 400px">
-blubb
-</a>
-   <div id="modal1" style="display: none">
-     <h1>Basic modal!</h1>
-     <p>Indeed. Whoa whoa whoa whoa. Wait.</p>
-
-
   </metal:block>
-
-
 
 </body>
 </html>
