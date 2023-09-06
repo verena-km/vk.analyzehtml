@@ -7,7 +7,7 @@
 vk.analyzehtml
 ==============
 
-An Plone add-on analyzing html tags and classes used in News Items and in Documents
+An Plone add-on analyzing HTML tags and classes used in News Items and Documents
 
 Features
 --------
@@ -15,8 +15,8 @@ Features
 Adds a view ``@@analyze-html-view`` which lists the tags and classes used in News Items and Documents.
 
 It ist meant
-- to check if the CSS configuration is ok
-- to check if the TinyMCE configuration is ok
+* to check if the CSS configuration is ok
+* to check if the TinyMCE configuration is ok
 
 especially for migration purposes.
 
@@ -25,8 +25,8 @@ It is not intended to be used in a production environment.
 Usage
 --------
 
-Calling the view ``@@analyze-html-view`` on any object in the site will show you a List of tags and classes with the number of elements using the
-them in the site. If you click on a tag or class you will get a list of links to the News Items and Documents using the tag or class.
+Calling the view ``@@analyze-html-view`` on any object in the site will show you a list of tags and classes with the number of elements using the
+them in the site. If you click on a tag or class you will get links to the News Items and Documents using the tag or class.
 
 
 Translations
