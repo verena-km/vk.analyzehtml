@@ -15,6 +15,7 @@ Features
 Adds a view ``@@analyze-html-view`` which lists the tags and classes used in News Items and Documents.
 
 It ist meant
+
 * to check if the CSS configuration is ok
 * to check if the TinyMCE configuration is ok
 
