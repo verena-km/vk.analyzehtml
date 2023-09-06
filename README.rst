@@ -2,62 +2,37 @@
    If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
    This text does not appear on PyPI or github. It is a comment.
 
-.. image:: https://github.com/collective/vk.analyzehtml/actions/workflows/plone-package.yml/badge.svg
-    :target: https://github.com/collective/vk.analyzehtml/actions/workflows/plone-package.yml
-
-.. image:: https://coveralls.io/repos/github/collective/vk.analyzehtml/badge.svg?branch=main
-    :target: https://coveralls.io/github/collective/vk.analyzehtml?branch=main
-    :alt: Coveralls
-
-.. image:: https://codecov.io/gh/collective/vk.analyzehtml/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/collective/vk.analyzehtml
-
-.. image:: https://img.shields.io/pypi/v/vk.analyzehtml.svg
-    :target: https://pypi.python.org/pypi/vk.analyzehtml/
-    :alt: Latest Version
-
-.. image:: https://img.shields.io/pypi/status/vk.analyzehtml.svg
-    :target: https://pypi.python.org/pypi/vk.analyzehtml
-    :alt: Egg Status
-
-.. image:: https://img.shields.io/pypi/pyversions/vk.analyzehtml.svg?style=plastic   :alt: Supported - Python Versions
-
-.. image:: https://img.shields.io/pypi/l/vk.analyzehtml.svg
-    :target: https://pypi.python.org/pypi/vk.analyzehtml/
-    :alt: License
-
 
 ==============
 vk.analyzehtml
 ==============
 
-An add-on analyzing used html tags and classes in rich text fields
+An Plone add-on analyzing html tags and classes used in News Items and in Documents
 
 Features
 --------
 
-- Can be bullet points
+Adds a view ``@@analyze-html-view`` which lists the tags and classes used in News Items and Documents.
 
+It ist meant
+- to check if the CSS configuration is ok
+- to check if the TinyMCE configuration is ok
 
-Examples
+especially for migration purposes.
+
+It is not intended to be used in a production environment.
+
+Usage
 --------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Calling the view ``@@analyze-html-view`` on any object in the site will show you a List of tags and classes with the number of elements using the
+them in the site. If you click on a tag or class you will get a list of links to the News Items and Documents using the tag or class.
 
 
 Translations
 ------------
 
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+TODO
 
 
 Installation
@@ -65,6 +40,8 @@ Installation
 
 Install vk.analyzehtml by adding it to your buildout::
 
+TODO: put on PyPI or in collective
+(((
     [buildout]
 
     ...
@@ -74,7 +51,7 @@ Install vk.analyzehtml by adding it to your buildout::
 
 
 and then running ``bin/buildout``
-
+)))
 
 Authors
 -------
@@ -93,9 +70,8 @@ Put your name here, you deserve it!
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/vk.analyzehtml/issues
-- Source Code: https://github.com/collective/vk.analyzehtml
-- Documentation: https://docs.plone.org/foo/bar
+- Issue Tracker: https://github.com/verena-km/vk.analyzehtml/issues
+- Source Code: https://github.com/verena-km/vk.analyzehtml
 
 
 Support
