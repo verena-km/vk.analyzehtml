@@ -1,59 +1,67 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="vk.analyzehtml"
-      metal:use-macro="context/main_template/macros/master">
-<body>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="vk.analyzehtml"
+  metal:use-macro="context/main_template/macros/master"
+>
+  <body>
+    <metal:block fill-slot="main">
+      <h1>HTML Tags and Classes</h1>
 
-  <metal:block fill-slot="main">
+      <p>
+        Shows a list of HTML tags and classes contained in all Documents and
+        News Items on the site.
+      </p>
 
-  <h1> HTML Tags and Classes </h1>
+      <h2>Tags</h2>
 
-  <p> Shows a list of HTML tags and classes contained in all Documents and News Items on the site.</p>
+      <div tal:define="tags view/tags">
+        <ul>
+          <li tal:repeat="element python:tags.keys()">
+            <details>
+              <summary>
+                <span tal:replace="element" /> (<span
+                  tal:replace="python:len(tags[element])"
+                />)
+              </summary>
 
-  <h2> Tags </h2>
+              <div tal:repeat="doc python:tags[element]">
+                <a
+                  tal:attributes="href doc/absolute_url"
+                  tal:content="doc/title"
+                >
+                </a>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
 
-  <div tal:define="tags view/tags">
-    <ul>
-      <li tal:repeat="element python:tags.keys()">
-        <details>
-          <summary>
-            <span tal:replace="element"/> (<span tal:replace="python:len(tags[element])" />)
-          </summary>
+      <h2>Classes</h2>
 
-        <div tal:repeat="doc python:tags[element]">
-          <a tal:attributes="href doc/absolute_url"
-            tal:content="doc/title">
-          </a>
-        </div>
-        </details>
-      </li>
-    </ul>
-  </div>
+      <div tal:define="classes view/classes">
+        <ul>
+          <li tal:repeat="element python:classes.keys()">
+            <details>
+              <summary>
+                <span tal:replace="element" /> (<span
+                  tal:replace="python:len(classes[element])"
+                />)
+              </summary>
 
-
-  <h2> Classes </h2>
-
-  <div tal:define="classes view/classes">
-      <ul>
-        <li tal:repeat="element python:classes.keys()">
-          <details>
-            <summary>
-              <span tal:replace="element"/> (<span tal:replace="python:len(classes[element])" />)
-            </summary>
-
-          <div tal:repeat="doc python:classes[element]">
-            <a tal:attributes="href doc/absolute_url"
-              tal:content="doc/title">
-            </a>
-          </div>
-          </details>
-        </li>
-      </ul>
-  </div>
-
-  </metal:block>
-
-</body>
+              <div tal:repeat="doc python:classes[element]">
+                <a
+                  tal:attributes="href doc/absolute_url"
+                  tal:content="doc/title"
+                >
+                </a>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </metal:block>
+  </body>
 </html>

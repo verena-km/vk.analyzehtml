@@ -11,6 +11,7 @@ from zope.interface import Interface
 class IAnalyzeHtmlView(Interface):
     """Marker Interface for IAnalyzeHtmlView"""
 
+
 @implementer(IAnalyzeHtmlView)
 class AnalyzeHtmlView(BrowserView):
     # If you want to define a template here, please remove the template from
@@ -38,7 +39,7 @@ class AnalyzeHtmlView(BrowserView):
 
             # print(object.text.raw)
             # print(object.text.output)
-        #print(tag_dict)
+        # print(tag_dict)
         return tag_dict
 
     def classes(self):
@@ -59,5 +60,5 @@ class AnalyzeHtmlView(BrowserView):
                     class_dict[classname] = {object}
                 else:
                     class_dict[classname].add(object)
-        #print(class_dict)
+        # print(class_dict)
         return class_dict
