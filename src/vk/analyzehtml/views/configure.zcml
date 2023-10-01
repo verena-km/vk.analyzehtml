@@ -16,7 +16,7 @@
     />
 
   <browser:page
-    name="analyze-html-view"
+    name="analyzehtml"
     for="*"
     class=".analyze_html_view.AnalyzeHtmlView"
     template="analyze_html_view.pt"
