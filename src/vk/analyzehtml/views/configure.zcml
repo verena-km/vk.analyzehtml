@@ -7,15 +7,6 @@
  <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
-    name="my-view"
-    for="*"
-    class=".my_view.MyView"
-    template="my_view.pt"
-    permission="zope2.View"
-    layer="vk.analyzehtml.interfaces.IVkAnalyzehtmlLayer"
-    />
-
-  <browser:page
     name="analyzehtml"
     for="*"
     class=".analyze_html_view.AnalyzeHtmlView"
