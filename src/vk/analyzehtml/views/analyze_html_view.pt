@@ -12,7 +12,7 @@
 
       <p>
         Shows a list of HTML tags and classes contained in all Documents and
-        News Items on the site.
+        News Items on the site. Clicking on the number will show links to the items containig the tag/class.
       </p>
 
       <h2>Tags</h2>
