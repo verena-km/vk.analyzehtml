@@ -22,15 +22,15 @@ class AnalyzeHtmlView(BrowserView):
         tag_dict = {}
         results = api.content.find(portal_type=["Document", "News Item"])
         for result in results:
-
             object = result.getObject()
-            soup = BeautifulSoup(object.text.raw, "html.parser")
-            for tag in soup.findAll(True):
+            if object.text: # es muss text haben
+                soup = BeautifulSoup(object.text.raw, "html.parser")
+                for tag in soup.findAll(True):
 
-                if not tag.name in tag_dict.keys():
-                    tag_dict[tag.name] = {object}
-                else:
-                    tag_dict[tag.name].add(object)
+                    if not tag.name in tag_dict.keys():
+                        tag_dict[tag.name] = {object}
+                    else:
+                        tag_dict[tag.name].add(object)
 
         return tag_dict
 
@@ -39,16 +39,17 @@ class AnalyzeHtmlView(BrowserView):
         results = api.content.find(portal_type=["Document", "News Item"])
         for result in results:
             object = result.getObject()
-            soup = BeautifulSoup(object.text.raw, "html.parser")
-            classes = [
-                value
-                for element in soup.find_all(class_=True)
-                for value in element["class"]
-            ]
+            if object.text: # es muss text haben
+                soup = BeautifulSoup(object.text.raw, "html.parser")
+                classes = [
+                    value
+                    for element in soup.find_all(class_=True)
+                    for value in element["class"]
+                ]
 
-            for classname in classes:
-                if not classname in class_dict.keys():
-                    class_dict[classname] = {object}
-                else:
-                    class_dict[classname].add(object)
+                for classname in classes:
+                    if not classname in class_dict.keys():
+                        class_dict[classname] = {object}
+                    else:
+                        class_dict[classname].add(object)
         return class_dict
